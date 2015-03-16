@@ -1,0 +1,12 @@
+           0           1           0           0
+    -12.00000     0.50000     1.50000     0.00000
+     0.00000     0.00000
+           0     8.00000    50.00000
+           1           0
+ 
+   ----------------
+   IFLAG_K,  IFLAG_W,  IFLAG_M,  KMODE
+   H,        A,        WK,       BETA
+   FCD_AMR,  FCD_AMI
+   IFLAG_T,  WAVES,    TNum
+   NPLOUT,   NDRFA 
