@@ -38,11 +38,11 @@ C
 C
 C ----------------------------------------
 C Input data files
-        OPEN(1, FILE='INPUT\DATIN.txt',      STATUS='OLD') 
-        OPEN(2, FILE='INPUT\DATBDMS.txt',    STATUS='OLD') 
-        OPEN(3, FILE='INPUT\DATFSMS.txt',    STATUS='OLD') 
-        OPEN(7, FILE='INPUT\DATMASS.txt',    STATUS='OLD')  
-        OPEN(4, FILE='INPUT\SNODE.txt',      STATUS='OLD') 
+        OPEN(1, FILE='INPUT/DATIN.txt',      STATUS='OLD') 
+        OPEN(2, FILE='INPUT/DATBDMS.txt',    STATUS='OLD') 
+        OPEN(3, FILE='INPUT/DATFSMS.txt',    STATUS='OLD') 
+        OPEN(7, FILE='INPUT/DATMASS.txt',    STATUS='OLD')  
+        OPEN(4, FILE='INPUT/SNODE.txt',      STATUS='OLD') 
 
 !	  OPEN(8, FILE='INPUT\SOLIDANGLE.txt',    STATUS='OLD') 
 !	  open(67, FILE='INPUT\M.txt',    STATUS='OLD')
@@ -53,18 +53,18 @@ C Input data files
 ! -----------------------------------
 !  Output data files
 !
-        OPEN(6,  FILE='OUTPUT\OUTScreen.txt',    STATUS='UNKNOWN')
-        OPEN(9,  FILE='OUTPUT\OUTPUT1.txt',    STATUS='UNKNOWN')
-	  OPEN(10, FILE='OUTPUT\OUTPUT.txt' ,    STATUS='UNKNOWN')
-	  OPEN(101,FILE='OUTPUT\OUTAMT.txt' ,    STATUS='UNKNOWN')
+        OPEN(6,  FILE='OUTPUT/OUTScreen.txt',    STATUS='UNKNOWN')
+        OPEN(9,  FILE='OUTPUT/OUTPUT1.txt',    STATUS='UNKNOWN')
+	  OPEN(10, FILE='OUTPUT/OUTPUT.txt' ,    STATUS='UNKNOWN')
+	  OPEN(101,FILE='OUTPUT/OUTAMT.txt' ,    STATUS='UNKNOWN')
 	  
 !	  OPEN(1022,FILE='OUTPUT\OUTBMT.txt' ,    STATUS='UNKNOWN')
 	  
-	  OPEN(13,FILE='OUTPUT\OUTELA.txt' ,    STATUS='UNKNOWN')
-	  OPEN(17,FILE='OUTPUT\OUTPUT7.txt' ,    STATUS='UNKNOWN')  
+	  OPEN(13,FILE='OUTPUT/OUTELA.txt' ,    STATUS='UNKNOWN')
+	  OPEN(17,FILE='OUTPUT/OUTPUT7.txt' ,    STATUS='UNKNOWN')  
 !~~
-        OPEN(14,FILE='OUTPUT\ETI.txt' ,    STATUS='UNKNOWN')
-	  open(15,FILE='OUTPUT\INETI.txt' ,    STATUS='UNKNOWN')
+        OPEN(14,FILE='OUTPUT/ETI.txt' ,    STATUS='UNKNOWN')
+	  open(15,FILE='OUTPUT/INETI.txt' ,    STATUS='UNKNOWN')
 
 !        OPEN(1041,FILE='OUTPUT\ETI2.txt' ,    STATUS='UNKNOWN')
 !	  open(1051,FILE='OUTPUT\INETI2.txt' ,    STATUS='UNKNOWN')
@@ -205,7 +205,7 @@ C
         WRITE(10,*),'  After MESHBD4' 
 !
 	  CLOSE(2)
-        OPEN(50, FILE='OUTPUT\DATBDMS.txt',    STATUS='UNKNOWN')
+        OPEN(50, FILE='OUTPUT/DATBDMS.txt',    STATUS='UNKNOWN')
 
 !	  CALL CONVSB
 !        WRITE(10,*),'  After CONVSB' 
