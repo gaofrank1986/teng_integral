@@ -31,17 +31,26 @@ C
 !        DO   INODE=1,NNODE
 !          READ(8,*) IN_ANGLE(INODE)
 !	  END DO
+
+!!	a very costy loops run thru all the nodes ,for each of them
+!!	run thru all the element to establish the relationship
         DO 50 INODE=1, NNODE 
         L=0
         DO 40 IELEM=1,  NELEM
         DO 30 J=1,      NCN(IELEM)
+!	for each node of the element
         IF(INODE.EQ.NCON(IELEM,J)) THEN
+!	if the node iterator is same as the node of the element
         L=L+1
         NODELE(INODE,L)=IELEM
+!	see this node belongs to which element
         NODELJ(INODE,L)=J
+!	and  which node this node is in the element
         ENDIF
 30      CONTINUE
 40      CONTINUE
+!----------------------------------
+!	NODNOE ------: how many times node is used in a element
         NODNOE(INODE)=L
 C                          
         NODQUA(INODE)=0
@@ -72,12 +81,14 @@ C
 !	  RIGHT(:,:,:)=(0.0D0,0.0D0)
         
 !        DO  500   INODE=1,  NNODE  
-           
-           INODE=Node_Singular
+!-----------------------------------------
+!-------Initialize the node at src point
+!--------------------------------------:w:           
+         INODE=Node_Singular
            
 
 !
-	   XP=XYZ(1,INODE)
+	 XP=XYZ(1,INODE)
          YP=XYZ(2,INODE)
          ZP=XYZ(3,INODE) 
         
@@ -90,9 +101,12 @@ C
 !        IF(INODE .EQ. 1) STOP
 !     	  CALL SOLIDANGLE(INODE,S_ANGLE)     
 !        S_ANGLE=IN_ANGLE(INODE)
+!-----------------------------------------------------
+!	FILE 9:		OUTPUT1.TXT
+!	FILE 10:	OUTPUT.TXT
 	   WRITE(9,102)  INODE, XP, YP, ZP
 	   WRITE(10,102)  INODE, XP, YP, ZP
-      	 
+!	File 17:OUTPU7.TXT     	 
       	 WRITE(17,*) ' ============================================='
       	 WRITE(17,102)  INODE, XP, YP, ZP
         
@@ -110,15 +124,19 @@ C
 C Using TSING if the source point is in the element or its mirror
 C     elements about any symmetrical axis, otherwise using TINBOD
 C
-        IF(NODNOE(INODE) .NE. 0) THEN          
+        IF(NODNOE(INODE) .NE. 0) THEN
+!	if the src point is used as the node point of other element          
          DO 100 I=1, NODNOE(INODE)
+!	loop thru the elements
          IF(IELEM .EQ. NODELE(INODE,I)) THEN
          II=II+1
          CALL TSING0(INODE,IELEM,NODQUA(INODE),XP,YP,ZP,VALG,VALDG)
+!	call the integral....give src point, element it's in
          ENDIF
 100      CONTINUE
         ENDIF
 C
+!	if src point is not on any element
         IF (II .EQ. 0)   THEN 
          CALL TINBOD0(IELEM,XP,YP,ZP,VALG,VALDG)
         END IF                

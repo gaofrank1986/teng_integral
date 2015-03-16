@@ -778,6 +778,23 @@
 
         SUBROUTINE AREA_COEF(IELEM,SISM,ETASM,CSST,SNST,JK0,JK1C,JK1S,   &
                    N0,N1C,N1S,XJ,XXJ,X,Y,Z,DET,F1,F2)
+!	Input:	IELEM--element src point in
+!		SISM---src point ksi 
+!		ETASM--src point eta
+!		CSST --
+!		SNST --
+!		JK0  --
+!		JK1C --
+!		JK1S --
+!		N0   --
+!		N1S --
+!		N1C --
+!		XJ --
+!		XXJ ---
+!	OUTPUT:	X,Y,Z
+!		DET
+!		F1,F2
+
 
         USE MVAR_MOD
         USE  MFUNC_mod   
@@ -804,6 +821,7 @@
 !
 
 ! ==================================================================
+!	File 10:	OUTPUT.TXT
 !
        write(10,*) ' Inside AREA_COEF'
        WRITE(10,*) ' SISM,ETASM=',SISM,ETASM

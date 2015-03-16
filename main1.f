@@ -43,7 +43,8 @@ C Input data files
         OPEN(3, FILE='INPUT/DATFSMS.txt',    STATUS='OLD') 
         OPEN(7, FILE='INPUT/DATMASS.txt',    STATUS='OLD')  
         OPEN(4, FILE='INPUT/SNODE.txt',      STATUS='OLD') 
-
+!       This is for input of src point
+! ---------------------------------------------
 !	  OPEN(8, FILE='INPUT\SOLIDANGLE.txt',    STATUS='OLD') 
 !	  open(67, FILE='INPUT\M.txt',    STATUS='OLD')
 !	read(67,*) wl
